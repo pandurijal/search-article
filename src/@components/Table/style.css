@@ -1,0 +1,12 @@
+.component-table table {
+  width: 100%;
+}
+
+.component-table--pagination span {
+  padding: 5px;
+  margin: 0 2px;
+}
+
+.component-table--pagination-item span.active {
+  border: none;
+}
