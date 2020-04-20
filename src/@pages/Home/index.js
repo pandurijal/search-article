@@ -4,6 +4,7 @@ import { getArticleList } from './../../@services';
 
 const Home = () => {
   const [search, setSearch] = useState('');
+  const [articles, setArticles] = useState([]);
 
   const onChangeSearch = (e) => {
     const { value } = e.target;
@@ -13,7 +14,7 @@ const Home = () => {
   const onSubmitSearch = async (e) => {
     e.preventDefault();
     const res = await getArticleList(search);
-    console.log({ res });
+    setArticles(res.hits);
   };
 
   return (
@@ -23,7 +24,7 @@ const Home = () => {
         onChange={onChangeSearch}
         onSubmit={onSubmitSearch}
       />
-      <Table />
+      <Table columns={['Title', 'Author']} rowData={articles} />
     </>
   );
 };
